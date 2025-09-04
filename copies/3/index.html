@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Web Development Guide</title>
+</head>
+
+<body>
+    <h1>Web Development Concepts Guide</h1>
+    
+    <section id="dropdowns">
+        <h2>1. Dropdown Menus</h2>
+        
+        <h3>CSS-only Dropdown Menu</h3>
+        <p>
+            This dropdown works purely with CSS using the :hover pseudo-class. No JavaScript is required.
+        </p>
+        
+        <div class="demo-container">
+            <nav class="nav-demo">
+                <ul class="css-nav">
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <a href="#">Services ▾</a>
+                        <ul>
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">Development Development </a></li>
+                            <li><a href="#">SEO</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Products ▾</a>
+                        <ul>
+                            <li><a href="#">E-commerce</a></li>
+                            <li><a href="#">CMS</a></li>
+                            <li><a href="#">CRM</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="code-example">
+            <pre><code>
+/* CSS for Dropdown Menu */
+.css-nav {
+    list-style: none;
+    display: flex;
+    background-color: #3498db;
+}
+
+.css-nav li {
+    position: relative;
+    padding: 15px;
+}
+
+.css-nav a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.css-nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    min-width: 150px;
+}
+
+.css-nav ul li {
+    padding: 10px 15px;
+}
+
+.css-nav ul a {
+    color: #2c3e50;
+}
+
+.css-nav li:hover > ul {
+    display: block;
+}
+            </code></pre>
+        </div>
+        
+        <h3>JavaScript Dropdown Menu</h3>
+        <p>This dropdown uses JavaScript for more control, such as adding delays or animations.</p>
+        
+        <div class="demo-container">
+            <nav class="nav-demo">
+                <ul class="js-nav" id="jsNav">
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <a href="#" class="js-dropdown-toggle">Services ▾</a>
+                        <ul class="js-dropdown">
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">SEO</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="js-dropdown-toggle">Products ▾</a>
+                        <ul class="js-dropdown">
+                            <li><a href="#">E-commerce</a></li>
+                            <li><a href="#">CMS</a></li>
+                            <li><a href="#">CRM</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="code-example">
+            <pre><code>
+// JavaScript for dropdown functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggles = document.querySelectorAll('.js-dropdown-toggle');
+    
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropdown = this.nextElementSibling;
+            
+            // Close all other open dropdowns
+            document.querySelectorAll('.js-dropdown').forEach(item => {
+                if (item !== dropdown) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
+        });
+    });
+    
+    // Close dropdowns when clicking elsewhere
+    document.addEventListener('click', function(e) {
+        if (!e.target.matches('.js-dropdown-toggle')) {
+            document.querySelectorAll('.js-dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+});
+
+/* CSS for JavaScript dropdown */
+.js-dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    min-width: 150px;
+}
+
+.js-dropdown.active {
+    display: block;
+}
+            </code></pre>
+        </div>
+        
+        <h3>React JS Dropdown Menu</h3>
+        <p>In React, we manage dropdown state using components and hooks.</p>
+        
+        <div class="code-example">
+            <pre><code>
+// React Dropdown Component Example
+import React, { useState } from 'react';
+
+const Dropdown = ({ title, items }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    
+    const toggleDropdown = () => setIsOpen(!isOpen);
+    
+    return (
+        <div className="dropdown">
+            <button onClick={toggleDropdown}>
+                {title} {isOpen ? '▴' : '▾'}
+            </button>
+            {isOpen && (
+                <ul className="dropdown-menu">
+                    {items.map((item, index) => (
+                        <li key={index}>
+                            <a href={item.link}>{item.label}</a>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    );
+};
+
+// Usage
+<Dropdown 
+    title="Services" 
+    items={[
+        { label: 'Web Design', link: '#' },
+        { label: 'Development', link: '#' },
+        { label: 'SEO', link: '#' }
+    ]} 
+/>
+            </code></pre>
+        </div>
+    </section>
+
+    <section id="hamburger">
+        <h2>Hamburger Menus</h2>
+        
+        <h3>CSS-only Hamburger Menu</h3>
+        <p>This technique uses a checkbox hack to create a mobile menu without JavaScript.</p>
+        
+        <div class="demo-container">
+            <nav class="css-hamburger-demo">
+                <input type="checkbox" id="hamburger-toggle" class="hamburger-checkbox">
+                <label for="hamburger-toggle" class="hamburger-label">☰</label>
+                <ul class="mobile-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="code-example">
+            <pre><code>
+/* CSS for Hamburger Menu */
+.hamburger-checkbox {
+    display: none;
+}
+
+.hamburger-label {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+}
+
+.mobile-menu {
+    display: flex;
+    list-style: none;
+}
+
+.mobile-menu li {
+    padding: 15px;
+}
+
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .hamburger-label {
+        display: block;
+    }
+    
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #34495e;
+    }
+    
+    .hamburger-checkbox:checked ~ .mobile-menu {
+        display: flex;
+    }
+}
+            </code></pre>
+        </div>
+        
+        <h3>JavaScript Hamburger Menu</h3>
+        <p>This approach uses JavaScript to toggle the menu, providing more flexibility.</p>
+        
+        <div class="demo-container">
+            <nav class="js-hamburger-demo">
+                <button id="js-hamburger" class="hamburger-btn">☰</button>
+                <ul id="js-mobile-menu" class="js-mobile-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="code-example">
+            <pre><code>
+// JavaScript for Hamburger Menu
+document.getElementById('js-hamburger').addEventListener('click', function() {
+    const menu = document.getElementById('js-mobile-menu');
+    menu.classList.toggle('active');
+});
+
+/* CSS for JavaScript Hamburger Menu */
+.hamburger-btn {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+}
+
+.js-mobile-menu {
+    display: flex;
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+    
+    .js-mobile-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #34495e;
+    }
+    
+    .js-mobile-menu.active {
+        display: flex;
+    }
+}
+            </code></pre>
+        </div>
+    </section>
+
+</body>
+</html>

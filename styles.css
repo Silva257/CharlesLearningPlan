@@ -84,6 +84,35 @@
             transition: var(--transition);
         }
 
+        .nav-links > li {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            background-color: #f5f7fa;
+            list-style: none;
+            position: absolute;
+            display: none;
+            min-width: 120px;
+            padding: 10px 0;
+            top: 100%;
+            left: 0;
+            z-index: 100;
+            border-radius: 10px;
+            border: 0.05px solid gray;
+
+            a {
+                color: #7209b7;
+                padding-bottom: 20px;
+            }
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+          
+        }
+
+
         nav a:hover {
             color: var(--primary);
         }
@@ -228,7 +257,12 @@
             nav li {
                 margin: 0.5rem 0;
             }
-            
+             /* nav ul {
+                flex-direction: row;
+                overflow: scroll;
+                scrollbar-width:  ;
+             }
+             */
             .phases, .projects-grid {
                 grid-template-columns: 1fr;
             }

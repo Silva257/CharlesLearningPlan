@@ -1,0 +1,138 @@
+ /* Basic reset and styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #3498db;
+        }
+        
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 1rem;
+            /* margin-top: 0.8rem; */
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .code-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .demo-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .nav-demo {
+            background: #34495e;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        /* CSS-only dropdown menu styles */
+        .css-nav {
+            list-style: none;
+            display: flex;
+            background-color: #3498db;
+            border-radius: 4px;
+        }
+        
+        .css-nav li {
+            position: relative;
+            padding: 15px;
+        }
+        
+        .css-nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .css-nav ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            min-width: 150px;
+            padding: 10px 0;
+            border-radius: 4px;
+            z-index: 100;
+        }
+        
+        .css-nav ul li {
+            padding: 10px 15px;
+        }
+        
+        .css-nav ul a {
+            color: #2c3e50;
+        }
+        
+        .css-nav li:hover > ul {
+            display: block;
+        }
+        
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+        }
+        
+        /* Responsive menu for mobile */
+        @media (max-width: 768px) {
+            .css-nav {
+                flex-direction: column;
+            }
+            
+            .css-nav li {
+                width: 100%;
+            }
+            
+            .css-nav ul {
+                position: static;
+                box-shadow: none;
+                background: #2980b9;
+            }
+        }
