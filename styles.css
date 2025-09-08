@@ -129,10 +129,14 @@
         /* tooltip styling */
 
 .tooltip {
-    color:#3d3838;
+    
     border-bottom: 1px dashed red;
     position: relative;
-
+   
+    a {
+        text-decoration: none;
+        color:#3d3838;
+    }
 }
 
 .tooltip:hover::before {
@@ -143,6 +147,7 @@
     white-space: nowrap;
 
 }
+
 
         section {
             background-color: white;
@@ -352,5 +357,21 @@
             display: block;
             max-width: fit-content;
             margin: 0 auto;
+        }
+
+        /* centerdot styling */
+
+        .centerdot {
+            font-size: 10rem;
+            color: red;
+            margin-top: 0;
+            /* background-color: #6c757d; */
+            padding: 0;
+            width: 30px;
+            height: 30px;
+
+            a {
+                text-decoration: none;
+            }
         }
     
