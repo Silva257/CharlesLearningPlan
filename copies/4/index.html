@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS Mastery Roadmap — 3–4 Month Plan</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#98a0b3; --accent:#7dd3fc; --glass: rgba(255,255,255,0.03);
+      --max-width:1100px; --radius:14px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#021124 0%, #071229 60%);color:#e6eef8}
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:20px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:20px}
+
+    /* left column */
+    .card{background:linear-gradient(180deg,var(--card),#081826);border-radius:var(--radius);padding:18px;box-shadow:0 8px 30px rgba(3,8,15,0.6)}
+    .section{margin-bottom:18px}
+    .section h2{font-size:16px;margin:0 0 8px}
+    .small{font-size:13px;color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+    li{margin:6px 0}
+
+    /* timeline */
+    .timeline{display:grid;gap:12px}
+    .week{display:flex;gap:12px}
+    .week .num{min-width:54px;background:var(--glass);border-radius:10px;padding:10px;text-align:center}
+    .week .body{flex:1}
+    .pill{display:inline-block;padding:4px 8px;background:rgba(125,211,252,0.08);border-radius:999px;font-size:12px;color:var(--accent);margin-left:6px}
+
+    /* right column */
+    aside{position:sticky;top:24px}
+    .resources li{margin:8px 0}
+    .cta{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#60a5fa);color:#022; text-decoration:none;font-weight:600}
+
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr;}
+      aside{position:static}
+    }
+
+    /* accordion */
+    details{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px}
+    summary{cursor:pointer;outline:none}
+    code{background:rgba(255,255,255,0.03);padding:4px 6px;border-radius:6px;font-family:monospace}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>CSS Mastery Roadmap — 3–4 Month Plan</h1>
+        <p class="lead">Daily: <strong>3–4 hours</strong>. Goal: master modern CSS (Box Model → Layouts → Responsive → Advanced) and be ready to learn JavaScript & React.</p>
+      </div>
+      <div class="small">Estimated schedule: <strong>12–16 weeks</strong> — pick 3 months (12 wks) or 4 months (16 wks) depending on pace.</div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="card section">
+          <h2>How to use this roadmap</h2>
+          <p class="small">Each week lists focused topics, exercises and a mini-project. Spend your 3–4 hours daily split roughly: <em>1 hour theory</em> (read/watch) + <em>1–2 hours</em> practice/coding + <em>30–60 min</em> polishing / notes.</p>
+          <ul class="small">
+            <li>Do the exercises, push code to GitHub each week.</li>
+            <li>Use MDN as reference, CSS-Tricks for patterns, FreeCodeCamp for structure, Kevin Powell and Josh W Comeau for tutorials.</li>
+            <li>When stuck: read docs, then build a tiny isolated demo (codepen / local file).</li>
+          </ul>
+        </section>
+
+        <section class="card section">
+          <h2>Weekly plan (pick 12 or 16 weeks)</h2>
+          <div class="timeline">
+
+            <!-- Week 1 -->
+            <div class="week">
+              <div class="num card" style="padding:8px">Week 1</div>
+              <div class="body">
+                <strong>Fundamentals & Workflow</strong> <span class="pill">Day 1 – 7</span>
+                <ul>
+                  <li>HTML basics review (semantic elements, accessibility basics)</li>
+                  <li>CSS syntax, selectors, specificity, cascade, inheritance</li>
+                  <li>Box model: content, padding, border, margin; box-sizing</li>
+                  <li>Developer tools: inspect, computed, layout, color picker</li>
+                  <li><em>Exercise:</em> Recreate a simple card component (image, title, description, button)</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="week">
+              <div class="num card">Week 2</div>
+              <div class="body">
+                <strong>Colors, Typography & Units</strong>
+                <ul>
+                  <li>Color models (hex, rgb[a], hsl[a]), contrast and accessible palettes</li>
+                  <li>Font-family, font-weight, font-size, line-height, letter-spacing</li>
+                  <li>Relative units: em, rem, %, vw, vh; when to use each</li>
+                  <li><em>Exercise:</em> Build a typography scale and theme file using CSS variables</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="week">
+              <div class="num card">Week 3</div>
+              <div class="body">
+                <strong>Positioning & Display</strong>
+                <ul>
+                  <li>display (block, inline, inline-block, inline-flex)</li>
+                  <li>position (static, relative, absolute, fixed, sticky)</li>
+                  <li>z-index, stacking contexts, overflow</li>
+                  <li><em>Exercise:</em> Create a fixed header with a dropdown and a sticky section</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="week">
+              <div class="num card">Week 4</div>
+              <div class="body">
+                <strong>Flexbox Deep Dive</strong>
+                <ul>
+                  <li>flex container properties and axis thinking (main/cross)</li>
+                  <li>align-items, justify-content, flex-wrap, gap, order</li>
+                  <li>common patterns: nav bar, card grid, centered layouts</li>
+                  <li><em>Mini-project:</em> Responsive nav + card grid using flexbox</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="week">
+              <div class="num card">Week 5</div>
+              <div class="body">
+                <strong>CSS Grid Deep Dive</strong>
+                <ul>
+                  <li>grid container, grid-template-columns/rows, gap, named areas</li>
+                  <li>implicit vs explicit grids, auto-fit/auto-fill with minmax()</li>
+                  <li>overlapping items, masonry-like layouts, responsive grid techniques</li>
+                  <li><em>Mini-project:</em> Build a magazine-style layout with Grid</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 6 -->
+            <div class="week">
+              <div class="num card">Week 6</div>
+              <div class="body">
+                <strong>Responsive Design & Media Queries</strong>
+                <ul>
+                  <li>mobile-first approach, breakpoints strategy, container queries (intro)</li>
+                  <li>fluid typography and spacing (clamp(), minmax(), calc())</li>
+                  <li><em>Project:</em> Make the Grid + Flex projects fully responsive and test on multiple widths</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 7 -->
+            <div class="week">
+              <div class="num card">Week 7</div>
+              <div class="body">
+                <strong>Forms, Inputs & Tables</strong>
+                <ul>
+                  <li>Styling form controls (inputs, selects, checkboxes, radios) and accessibility</li>
+                  <li>Custom file inputs, placeholders, focus-visible and validation states</li>
+                  <li>Table layout basics and responsive table patterns</li>
+                  <li><em>Exercise:</em> Create a styled contact form with validation styles</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 8 -->
+            <div class="week">
+              <div class="num card">Week 8</div>
+              <div class="body">
+                <strong>Transitions, Animations & Motion</strong>
+                <ul>
+                  <li>transition shorthand, timing functions, transform basics</li>
+                  <li>@keyframes, animation properties, performance considerations</li>
+                  <li>micro-interactions: hover, focus, loading states</li>
+                  <li><em>Mini-project:</em> Create animated menu, button hover effects, and a simple loader</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 9 -->
+            <div class="week">
+              <div class="num card">Week 9</div>
+              <div class="body">
+                <strong>Pseudo-elements & Pseudo-classes</strong>
+                <ul>
+                  <li>::before, ::after, :nth-child, :not, :focus-visible, :hover, :active</li>
+                  <li>creative uses: decorative elements, accessible focus rings, CSS-only badges</li>
+                  <li><em>Exercise:</em> Build a CSS card with ::before/::after decorative shapes</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 10 -->
+            <div class="week">
+              <div class="num card">Week 10</div>
+              <div class="body">
+                <strong>CSS Variables, Functions & Advanced Selectors</strong>
+                <ul>
+                  <li>custom properties (theme tokens), calc(), clamp(), var(), color-mix()</li>
+                  <li>scoping variables, theming (dark/light), transitioning variables</li>
+                  <li><em>Project:</em> Build a themeable component library (buttons, badges, cards) with variables</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 11 -->
+            <div class="week">
+              <div class="num card">Week 11</div>
+              <div class="body">
+                <strong>Layouts, Complex Patterns & Accessibility</strong>
+                <ul>
+                  <li>multi-column layouts, layout strategies for dashboards and apps</li>
+                  <li>keyboard accessibility, focus management, reduced-motion and prefers-reduced-motion
+                  </li>
+                  <li><em>Exercise:</em> Create a dashboard mockup with accessible keyboard navigation</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Week 12 -->
+            <div class="week">
+              <div class="num card">Week 12</div>
+              <div class="body">
+                <strong>Build Week — Capstone</strong>
+                <ul>
+                  <li>Combine everything into a responsive multi-page site (portfolio / blog / product landing)</li>
+                  <li>Polish, add animations, theme toggle, and ensure accessibility and performance</li>
+                  <li>Deploy to GitHub Pages; add README and live link to your portfolio</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Optional advanced weeks for 16-week plan -->
+            <details>
+              <summary style="margin-top:8px">Optional advanced weeks (13 to 16) — go deeper</summary>
+              <div style="margin-top:10px">
+                <div class="week"><div class="num card">Week 13</div><div class="body"><strong>CSS Architecture</strong>
+                  <ul>
+                    <li>BEM, ITCSS, utility-first approaches, when to use each</li>
+                    <li>scaleable folder structures and naming conventions</li></ul></div></div>
+                <div class="week"><div class="num card">Week 14</div><div class="body"><strong>Performance & Build Tools</strong>
+                  <ul><li>critical CSS, unused CSS removal, PostCSS, autoprefixer, vendor prefixes</li></ul></div></div>
+                <div class="week"><div class="num card">Week 15</div><div class="body"><strong>Modern APIs</strong>
+                  <ul><li>Container queries, Houdini intro, CSS Paint & Typed OM (overview)</li></ul></div></div>
+                <div class="week"><div class="num card">Week 16</div><div class="body"><strong>Projects & Hiring Prep</strong>
+                  <ul><li>Polish portfolio, case study writeups, GitHub README, interview practice</li></ul></div></div>
+              </div>
+            </details>
+
+          </div>
+        </section>
+
+        <section class="card section">
+          <h2>Recommended mini-projects (do 1–2 per 2 weeks)</h2>
+          <ul>
+            <li>Responsive landing page / product card set</li>
+            <li>Blog index + article layout (typography focus)</li>
+            <li>Dashboard with cards, side navigation, and tables</li>
+            <li>Interactive navigation with dropdowns, mobile menu and animated transitions</li>
+            <li>Component library (buttons, inputs, cards) using CSS variables</li>
+          </ul>
+        </section>
+
+        <section class="card section">
+          <h2>Weekly checklist</h2>
+          <ul class="small">
+            <li>Read/watch: 1–2 curated tutorials or docs</li>
+            <li>Practice: replicate a UI pattern or layout</li>
+            <li>Project: add a feature to your mini-project</li>
+            <li>Commit & push to GitHub; write a short note about what you learned</li>
+          </ul>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="card">
+          <h2>Resources & Tools</h2>
+          <ul class="resources small">
+            <li>MDN Web Docs — reference & compatibility</li>
+            <li>CSS-Tricks — practical guides and patterns</li>
+            <li>FreeCodeCamp — structured interactive lessons</li>
+            <li>Kevin Powell (YouTube) — clear CSS tutorials</li>
+            <li>Josh W Comeau — modern CSS explorations</li>
+            <li>Frontend Mentor / CodePen — practice and showcase</li>
+            <li>Browser devtools, Lighthouse, axe DevTools (accessibility)</li>
+          </ul>
+
+          <h2 style="margin-top:12px">Useful commands & snippets</h2>
+          <pre class="small" style="overflow:auto;background:rgba(255,255,255,0.02);padding:10px;border-radius:8px">/* theme tokens */
+:root{--gap:16px;--bg:#fff;--text:#0b1220}
+/* fluid type */
+html{font-size:clamp(14px, 1.4vw + 10px, 18px)}
+/* responsive grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--gap)}</pre>
+
+          <h2 style="margin-top:12px">Deploy to GitHub Pages</h2>
+          <ol class="small">
+            <li>Create a GitHub repo and push your project.</li>
+            <li>In repo settings, under Pages, choose the branch (main) and root (/) or <code>/docs</code>.</li>
+            <li>Wait for the site to build and visit the published URL.</li>
+          </ol>
+
+          <h2 style="margin-top:12px">Ready for JavaScript & React?</h2>
+          <p class="small">After week 8–12 you should be comfortable starting JavaScript: DOM, events, manipulating classes, and fetching data. Focus next on JS fundamentals then React basics (components, props, state, hooks).</p>
+
+          <div style="margin-top:12px" class="cta">
+            <a class="btn" href="#" onclick="alert('Tip: push this file to a GitHub repo and enable Pages to publish.')">Save as README.html</a>
+            <a class="btn" href="#" onclick="alert('Good luck — keep building!')">Start Today</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h2>Motivation & Tips</h2>
+          <p class="small">Consistency > intensity. Ship small projects. Break UI into components and style them as reusable pieces. Learn to debug in devtools — that skill is worth its weight in gold.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div>Made for your 3–4 hour daily routine — tweak weeks to match your pace. Happy building! 🚀</div>
+    </footer>
+  </div>
+</body>
+</html>
