@@ -30,10 +30,14 @@
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            /* width: 90%;
+            max-width: 1200px; */
+            width: min(90%, 1200px);
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            height: fit-content;
+           
         }
 
         header {
@@ -64,6 +68,7 @@
             border-radius: 10px;
             box-shadow: var(--shadow);
             background-color: #dbd5d8;
+            /* position: relative;  */
         }
 
         nav ul {
@@ -83,6 +88,7 @@
             font-weight: 600;
             transition: var(--transition);
         }
+
 
         .nav-links > li {
             position: relative;
@@ -107,6 +113,10 @@
             }
         }
 
+        .nav-links {
+            position: sticky;
+        }
+
         .dropdown:hover .dropdown-menu {
             display: block;
           
@@ -116,6 +126,23 @@
         nav a:hover {
             color: var(--primary);
         }
+        /* tooltip styling */
+
+.tooltip {
+    color:#3d3838;
+    border-bottom: 1px dashed red;
+    position: relative;
+
+}
+
+.tooltip:hover::before {
+    content:attr(data-tooltip);
+    position: absolute;
+    top: -20px;
+    left: -13px;
+    white-space: nowrap;
+
+}
 
         section {
             background-color: white;

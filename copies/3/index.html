@@ -182,7 +182,7 @@ const Dropdown = ({ title, items }) => {
             <button onClick={toggleDropdown}>
                 {title} {isOpen ? '▴' : '▾'}
             </button>
-            {isOpen && (
+            <!-- {isOpen && (
                 <ul className="dropdown-menu">
                     {items.map((item, index) => (
                         <li key={index}>
@@ -190,7 +190,7 @@ const Dropdown = ({ title, items }) => {
                         </li>
                     ))}
                 </ul>
-            )}
+            )} -->
         </div>
     );
 };
